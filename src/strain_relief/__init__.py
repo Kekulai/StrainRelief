@@ -7,7 +7,11 @@ project_dir: Path = Path(__file__).resolve().parents[2]
 src_dir: Path = project_dir / "src"
 test_dir: Path = project_dir / "tests"
 data_dir: Path = project_dir / "data"
-config_dir: Path = src_dir / "strain_relief/hydra_config"
+
+# the above don't work on pip installs, so adding this:
+# Current directory
+current_dir: Path = Path(__file__).resolve().parent
+config_dir: Path = current_dir / "hydra_config"
 
 __all__ = [
     "compute_strain",
